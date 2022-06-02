@@ -1,14 +1,15 @@
 import React from 'react';
+import type { AlertStatus } from '@chakra-ui/alert';
 import { Flex, Box, Tooltip, useToast } from '@chakra-ui/core';
 import EventModal from '../EventModal/EventModal';
-
+import fetch from '../../utils/Fetch';
 import { getYear, isLeapYear, parse, differenceInWeeks, format, addWeeks } from 'date-fns';
 import { useRecoilState } from 'recoil';
 import { appState } from '../../utils/AppState';
 import css from './WeekTimeline.module.css';
 
 const DefaultData = {
-  events: [{ type: 1, date: '1982-01-01', title: 'My birthday' }]
+  events: [{ type: 1, date: '1987-06-11', title: 'My birthday' }]
 };
 
 const parseDate = (dateStr: string) => parse(dateStr, 'yyyy-MM-dd', new Date());
@@ -218,13 +219,50 @@ export default function WeekTimeline({ data }: { data: any }) {
             data.events.push(event);
             setEventModalOpen(-1);
             setMainKey(Math.random());
-            toast({
-              title: 'Added',
-              description: `You have total ${data.events.length} events (boxes) now.`,
-              status: 'success',
-              duration: 9000,
-              isClosable: true
+            fetch('http://api.tianapi.com/mingyan/index?key=a3477a523dc95faf83da30daa5899cb0', 'GET', (d) => {
+              console.log('=======', d);
+              let content = '人生难免挣扎';
+              let author = '罗丰阁';
+              let toastStatus = 'error';
+              if (d.code == '200') {
+                content = d.newslist[0].content;
+                author = d.newslist[0].author;
+                toastStatus = 'success';
+              }
+              toast({
+                // title: content,
+                // description: author,
+                render: () => (
+                  <Box
+                    onClick={() => {
+                      toast.closeAll();
+                    }}
+                    color="white"
+                    p={3}
+                    bg="blue.500"
+                    borderRadius="sm"
+                  >
+                    {content}
+                    <Box>
+                      <Box as="span" ml="2" color="white" fontSize="sm">
+                        - {author}
+                      </Box>
+                    </Box>
+                  </Box>
+                ),
+                status: toastStatus as AlertStatus,
+                duration: 9000,
+                position: 'bottom',
+                isClosable: true
+              });
             });
+            // toast({
+            //   title: '添加成功了！',
+            //   description: `You have total ${data.events.length} events (boxes) now.`,
+            //   status: 'success',
+            //   duration: 9000,
+            //   isClosable: true
+            // });
             localStorage.setItem('data', JSON.stringify(data));
           }}
         />

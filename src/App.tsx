@@ -17,7 +17,8 @@ function App({ dataString }: { dataString: string }) {
     let visits: number = parseInt(localStorage.getItem('visits') || '0');
     visits++;
     localStorage.setItem('visits', `${visits}`);
-    if (visits === 1) {
+    // if (visits === 1) {
+    if (1 === 1) {
       toast({
         title: 'Welcome',
         description: `- Each box is a week - Click "Events" to manage them - Works better on Desktop`,
@@ -33,12 +34,7 @@ function App({ dataString }: { dataString: string }) {
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <Flex m={2} ml={20} justifyContent="space-between" w="100%">
-          <h1>
-            Life Calendar: Your Life in Weeks{' '}
-            <a href="http://b.link/ghub" target="_blank" rel="noreferrer" style={{ fontSize: '0.6em', color: '#555' }}>
-              on Github
-            </a>
-          </h1>
+          <h1>Life Calendar: Your Life in Weeks </h1>
 
           <Box mr={20}>
             <OptionModal />

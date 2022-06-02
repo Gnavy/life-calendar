@@ -12,7 +12,7 @@ import reportWebVitals from './reportWebVitals';
 import { theme } from '@chakra-ui/core';
 import { merge } from '@chakra-ui/utils';
 
-LogRocket.init('9aapdz/life-calendar');
+// LogRocket.init('9aapdz/life-calendar');
 
 // 2. Extend the theme to include custom colors, fonts, etc.
 const customTheme = merge(theme, {
@@ -30,7 +30,7 @@ const DefaultDataStr = `
     "events": [
         {
             "type": 1,
-            "date": "1982-01-01",
+            "date": "1987-06-1",
             "title": "👶 I was born"
         },
         {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { format } from 'date-fns';
-
 import {
   Modal,
   ModalOverlay,
@@ -10,8 +9,9 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
-  Textarea,
-  Input
+  // Textarea,
+  Select
+  // Input
 } from '@chakra-ui/core';
 type Props = {
   startTime: number;
@@ -24,19 +24,29 @@ export default function EventModal(props: Props) {
   const { startTime, isOpen, onClose, onSubmit } = props;
   // console.log('startTime', new Date(startTime), startTime);
   const startDateStr = format(startTime, 'yyyy-MM-dd');
-
   const [selectedDateValue, setSelectedDateValue] = React.useState(startDateStr);
   const [title, setTitle] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [type, setType] = React.useState('');
 
   const onClickSubmit = () => {
+    let tpMp = new Map([
+      ['😄', '3'],
+      ['😕', '2'],
+      ['😨', '1'],
+      ['🤧', '-1'],
+      ['😭', '-2'],
+      ['😤', '-3']
+    ]);
+    if (!title) {
+      return;
+    }
     const event = {
       title: title || 'New Event',
       date: selectedDateValue,
-      type: parseInt(type || '1')
+      type: parseInt(tpMp.get(title) || '1')
     };
-    // console.log('event', event);
+    console.log('event', event);
     onSubmit && onSubmit(event);
   };
   return (
@@ -46,20 +56,29 @@ export default function EventModal(props: Props) {
           <ModalHeader>Add Event</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Input
+            {/* <Input
               placeholder="Date"
               type="date"
               defaultValue={startDateStr}
               onChange={(ev: any) => setSelectedDateValue(ev.target.value)}
-            />
-            <Input placeholder="Title" mt={2} onChange={(ev: any) => setTitle(ev.target.value)} />
-            <Textarea
+            /> */}
+            {/* <Input placeholder="Title" mt={2} onChange={(ev: any) => setTitle(ev.target.value)} /> */}
+            <Select placeholder="选择心情" mt={2} onChange={(ev: any) => setTitle(ev.target.value)}>
+              <option value="😄">😄 - 贼开心</option>
+              <option value="😙">😙 - 小确幸</option>
+              <option value="😕">😕 - 一般般</option>
+              <option value="😨">😨 - 又躺平</option>
+              <option value="🤧">🤧 - 生病啦</option>
+              <option value="😭">😭 - 桑心了</option>
+              <option value="😤">😤 - 气死了</option>
+            </Select>
+            {/* <Textarea
               placeholder="Description"
               mt={2}
               rows={4}
               onChange={(ev: any) => setDescription(ev.target.value)}
             />
-            <Input placeholder="Type (-3, -2, -1, 0, 1, 2, or 3)" onChange={(ev: any) => setType(ev.target.value)} />
+            <Input placeholder="Type (-3, -2, -1, 0, 1, 2, or 3)" onChange={(ev: any) => setType(ev.target.value)} /> */}
           </ModalBody>
 
           <ModalFooter>
@@ -67,7 +86,7 @@ export default function EventModal(props: Props) {
               Close
             </Button> */}
             <Button colorScheme="teal" onClick={onClickSubmit}>
-              Add Event
+              决定了
             </Button>
           </ModalFooter>
         </ModalContent>
