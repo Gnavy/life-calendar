@@ -30,13 +30,13 @@ const DefaultDataStr = `
     "events": [
         {
             "type": 1,
-            "date": "1987-06-1",
+            "date": "1987-06-11",
             "title": "👶 I was born"
         },
         {
             "type": 1,
-            "date": "1984-01-01",
-            "title": "🎂 My 2nd birthday"
+            "date": "2022-06-11",
+            "title": "🎂 My 35th birthday"
         }
     ]
 }`.trim();
@@ -66,4 +66,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();

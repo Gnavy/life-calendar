@@ -128,10 +128,10 @@ export default function WeekTimeline({ data }: { data: any }) {
               return null;
             }
           }
-          let bgColor = '#333'; // default
+          let bgColor = '#E16B8C'; // default
 
           if (idx < _todayItem._weekNum) {
-            bgColor = '#222'; // passed weeks
+            bgColor = '#64363C'; // passed weeks
           }
 
           let yearTooltip = '';
@@ -219,7 +219,7 @@ export default function WeekTimeline({ data }: { data: any }) {
             data.events.push(event);
             setEventModalOpen(-1);
             setMainKey(Math.random());
-            fetch('http://api.tianapi.com/mingyan/index?key=a3477a523dc95faf83da30daa5899cb0', 'GET', (d) => {
+            fetch('https://api.tianapi.com/mingyan/index?key=a3477a523dc95faf83da30daa5899cb0', 'GET', (d) => {
               console.log('=======', d);
               let content = '人生难免挣扎';
               let author = '罗丰阁';

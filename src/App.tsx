@@ -20,8 +20,8 @@ function App({ dataString }: { dataString: string }) {
     // if (visits === 1) {
     if (1 === 1) {
       toast({
-        title: 'Welcome',
-        description: `- Each box is a week - Click "Events" to manage them - Works better on Desktop`,
+        title: '欢迎',
+        description: `- 每一个格子代表你生命中的一星期`,
         status: 'info',
         duration: 12000,
         isClosable: true

@@ -70,7 +70,6 @@ export default function DataModal({
             <Box mb={4}>"type" can have -3, -2, -1, 0, 1, 2 or 3 (sad-to-happy point)</Box>
             <Textarea rows={20} onChange={(ev: any) => setText(ev.target.value)} value={text} />
           </ModalBody>
-
           <ModalFooter>
             <Box>
               <Button colorScheme="gray" onClick={onClickAdd}>
