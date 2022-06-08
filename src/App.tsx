@@ -18,15 +18,15 @@ function App({ dataString }: { dataString: string }) {
     visits++;
     localStorage.setItem('visits', `${visits}`);
     // if (visits === 1) {
-    if (1 === 1) {
-      toast({
-        title: '欢迎',
-        description: `- 每一个格子代表你生命中的一星期`,
-        status: 'info',
-        duration: 12000,
-        isClosable: true
-      });
-    }
+    // if (1 === 1) {
+    //   toast({
+    //     title: '欢迎',
+    //     description: `- 每一个格子代表你生命中的一星期`,
+    //     status: 'info',
+    //     duration: 12000,
+    //     isClosable: true
+    //   });
+    // }
   }, []);
 
   return (
