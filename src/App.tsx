@@ -33,15 +33,8 @@ function App({ dataString }: { dataString: string }) {
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Flex m={2} ml={5} justifyContent="space-between" w="100%">
+        <Flex m={2} justifyContent="space-between" w="100%">
           <h1>Life Calendar: Your Life in Weeks </h1>
-
-          <Box mr={20}>
-            {/* <OptionModal /> */}
-            <Button size="sm" colorScheme="teal" onClick={onOpen}>
-              Events
-            </Button>
-          </Box>
         </Flex>
 
         <Box>
