@@ -50,7 +50,7 @@ export default function EventModal(props: Props) {
     onSubmit && onSubmit(event);
   };
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="xl">
+    <Modal isOpen={isOpen} onClose={onClose} size="xs">
       <ModalOverlay>
         <ModalContent>
           <ModalHeader>Add Event</ModalHeader>
