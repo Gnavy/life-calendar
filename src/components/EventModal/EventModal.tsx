@@ -53,7 +53,7 @@ export default function EventModal(props: Props) {
     <Modal isOpen={isOpen} onClose={onClose} size="xs">
       <ModalOverlay>
         <ModalContent>
-          <ModalHeader>Add Event</ModalHeader>
+          <ModalHeader>定义时间</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             {/* <Input
@@ -85,7 +85,7 @@ export default function EventModal(props: Props) {
             {/* <Button variant="ghost" onClick={onClose}>
               Close
             </Button> */}
-            <Button colorScheme="teal" onClick={onClickSubmit}>
+            <Button bg="#E16B8C" _hover={{ bg: '#64363C' }} color="#fff" onClick={onClickSubmit}>
               决定了
             </Button>
           </ModalFooter>

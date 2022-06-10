@@ -239,7 +239,8 @@ export default function WeekTimeline({ data }: { data: any }) {
                     }}
                     color="white"
                     p={3}
-                    bg="blue.500"
+                    m={6}
+                    bg="#E16B8C"
                     borderRadius="sm"
                   >
                     {content}
@@ -252,7 +253,7 @@ export default function WeekTimeline({ data }: { data: any }) {
                 ),
                 status: toastStatus as AlertStatus,
                 duration: 9000,
-                position: 'bottom',
+                position: 'top',
                 isClosable: true
               });
             });
