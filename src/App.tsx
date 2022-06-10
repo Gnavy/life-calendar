@@ -19,7 +19,7 @@ function App({ dataString }: { dataString: string }) {
     let today = new Date();
     console.log(today.getMonth());
     console.log(today.getDate());
-    if (today.getMonth() == 5 && today.getDate() == 10) {
+    if (today.getMonth() == 5 && today.getDate() == 11) {
       toast({
         render: () => (
           <Box
